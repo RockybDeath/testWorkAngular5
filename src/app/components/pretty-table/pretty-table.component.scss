@@ -1,0 +1,21 @@
+:host::ng-deep{
+  width: 100vw;
+  display: block;
+  height: 94vh;
+  .p-multiselect{
+    min-width: 300px;
+    @media screen and (max-width: 600px) {
+      min-width: auto;
+    }
+  }
+}
+.p-table-header{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  @media screen and (max-width: 600px) {
+    flex-flow: column;
+  }
+}
