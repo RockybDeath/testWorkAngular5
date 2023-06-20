@@ -25,7 +25,7 @@ export class PrettyTableComponent implements OnInit {
   public startRowsCount = 10;
   public rowsPerPageArray = [10, 25, 50];
 
-  public columns = allColumns;
+  public columns: Column[] = allColumns;
   public _selectedColumns: Column[] = allColumns;
 
   public scrollHeight = '70vh';

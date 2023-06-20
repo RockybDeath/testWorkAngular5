@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TableRow } from '../components/models/table-row';
 import { tableData } from '../components/testData/data';
@@ -7,7 +7,7 @@ import { UserName } from '../components/models/user-name';
 @Injectable({
   providedIn: 'root',
 })
-export class TableDataService {
+export class TableDataService implements OnDestroy {
   private tableData: BehaviorSubject<TableRow[]> = new BehaviorSubject<
     TableRow[]
   >([]);
@@ -36,5 +36,10 @@ export class TableDataService {
       result += info.first;
     }
     return result;
+  }
+
+  ngOnDestroy(): void {
+    this.tableData.next([]);
+    this.tableData.complete();
   }
 }
